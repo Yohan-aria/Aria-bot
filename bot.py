@@ -9,7 +9,7 @@ ANTHROPIC_KEY = os.environ.get('ANTHROPIC_KEY', '')
 
 SYSTEM_PROMPT = 'Tu es ARIA, une assistante IA personnelle et professionnelle francophone. Tu aides avec l agenda, les emails, la gestion de projets, le coaching et la productivite. Reponds toujours en francais, sois directe et bienveillante. Maximum 250 mots par reponse.'
 
-logging.basicConfig(format=”%(asctime)s - %(name)s - %(levelname)s - %(message)s”, level=logging.INFO)
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger('ARIA')
 
 client = Anthropic(api_key=ANTHROPIC_KEY)
@@ -46,7 +46,7 @@ return 'Desole, j ai rencontre une erreur. Reessayez dans un instant.'
 
 async def cmd_start(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
 user = update.effective_user
-name = user.first_name if user else “vous”
+name = user.first_name if user else 'vous'
 welcome = 'Bonjour ' + name + ' ! Je suis ARIA, votre assistante IA personnelle et professionnelle. Je peux vous aider avec votre agenda, vos emails, vos projets, le coaching et bien plus. Parlez-moi librement !'
 await update.message.reply_text(welcome)
 
